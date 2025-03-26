@@ -16,3 +16,15 @@ jobs:
 
       - name: Run test script
         run: npm run lint:check
+
+  job2:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run test script
+        run: npm run format:check
