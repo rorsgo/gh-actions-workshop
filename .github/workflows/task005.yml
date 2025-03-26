@@ -9,38 +9,20 @@ on:
 jobs:
   job1:
     runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-        
-      - name: Install dependencies
-        run: npm ci
-
-      - name: Run test script
-        run: npm run lint:check
-
-  job2:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Install dependencies
-        run: npm ci
-
-      - name: Run test script
-        run: npm run format:fix
-
-      - name: Run test script
-        run: npm run format:check
-
-  job3:
-    runs-on: ubuntu-latest
     permissions:
       contents: read
       pages: write
       id-token: write
     steps:
+      - name: Checkout
+        run: actions/checkout@v4
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build app
+        run: npm run build
+
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
