@@ -27,6 +27,8 @@ jobs:
 
   post-comment:
     runs-on: ubuntu-latest
+    permissions:
+      pull-requests: write
     needs: [job1, job2]
     steps:
       - name: Post comment
